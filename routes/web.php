@@ -14,24 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('demos');
-});
-//Route::get('/demo', function (){
-//    echo '<h1>Đây là phương thức get</h1>';
-//    echo '<h2>Link: '.url('demo').'</h2>';
-//});
-
-Route::post('/demo', function () {
-    echo '<h1>Đây là phương thức post</h1>';
-    echo '<h2>Link: ' . url('demo') . '</h2>';
-});
 Route::get('', [HomeController::class, 'index'])->name('home.index');
 
-//Route::get('/product', function () {
-//    return view('products');
-//});
+//Route hiển thị form login
+Route::get('login', [HomeController::class, 'login'])->name('home.login');
 
-Route::get('', [HomeController::class, 'listProduct'])->name('home.products');
+//Route validate dữ liệu khi update form
+Route::post('login', [HomeController::class, 'check_login']);
 
-Route::get('/banner', [HomeController::class, 'listBanner'])->name('home.banner');
+// route sẽ hiển thị form upload
+Route::get('upload', [HomeController::class, 'upload'])->name('home.upload');
+// route này validate dữ liệu khi submit form
+Route::post('upload', [HomeController::class, 'handle_upload']);
