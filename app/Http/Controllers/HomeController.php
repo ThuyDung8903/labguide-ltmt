@@ -68,6 +68,5 @@ class HomeController extends Controller
         // dd (public_path('uploads'));
         // upload vào thư mục public/uploads
         $req->image->move(public_path('uploads'), $file_name);
-
     }
 }
